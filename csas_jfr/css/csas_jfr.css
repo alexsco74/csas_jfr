@@ -1,0 +1,13 @@
+.csas-jfr-form-error{
+    position:relative;
+}
+.csas-jfr-form-error:before {
+    content: "Надо заполнить!";
+    position: absolute;
+    right: 0;
+    color: red;
+}
+
+html .csas-jfr-form-error input {
+    background-color: #ffd8ec;
+}

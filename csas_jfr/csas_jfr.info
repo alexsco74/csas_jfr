@@ -1,0 +1,5 @@
+name = Csas jfr
+description = Csas js form element required validate
+package = Csas
+core = 7.x
+;configure = admin/config/content/csas_jfr

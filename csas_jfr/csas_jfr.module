@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * Csas js form element required validate
+ */
+
+function csas_jfr_form_alter(&$form, &$form_state, $form_id) {
+  if (!empty($form['#attributes']['class']) && in_array('csas-jfr', $form['#attributes']['class'])) {
+
+    $form['#attached']['js'][] = _csas_jfr_get_js_fle('csas_jfr.js');
+    $form['#attached']['css'][] = _csas_jfr_get_css_fle('csas_jfr.css');
+  }
+}
+
+function _csas_jfr_get_css_fle($fle = '') {
+  global $theme;
+  $pth = drupal_get_path('theme', $theme);
+  $dta = $pth . '/css/' . $theme . '.' . $fle;
+  if (file_exists($dta)) {
+    return $dta;
+  }
+  else {
+    $pth = drupal_get_path('module', 'csas_jfr');
+    return $pth . "/css/{$fle}";
+  }
+}
+
+function _csas_jfr_get_js_fle($fle = '') {
+  global $theme;
+  $pth = drupal_get_path('theme', $theme);
+  $dta = $pth . '/js/' . $theme . '.' . $fle;
+  if (file_exists($dta)) {
+    return $dta;
+  }
+  else {
+    $pth = drupal_get_path('module', 'csas_jfr');
+    return $pth . "/js/{$fle}";
+  }
+}
